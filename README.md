@@ -7,13 +7,13 @@
 Download trained models and outputs are here:
 https://drive.google.com/drive/folders/1QRNqA9w0oqielCvK3jleMs6Sw4Hi1bgx?usp=sharing
 
-The algorithms were trained and test on the Great Lakes cluster with the following Anaconda environment: Python 3.9, Cuda 10.2, with installed requirements.txt. 
+The algorithms were trained and test on the Great Lakes cluster with the following Anaconda environment: Python 3.9, Cuda 10.2, PyTorch 1.5, and with installed requirements.txt. 
 
 Once the environment is set up, install spconv (https://github.com/traveller59/spconv):
 
 | CUDA 10.2 | [![PyPI Version][pypi-ver-102]][pypi-url-102] | ```pip install spconv-cu102```| [![pypi monthly download][pypi-download-102]][pypi-url-102]| 
 
-Once these steps are complete, install the setup.py file via
+Once these steps are complete, run this to install the pcdet library via:
 ```python
 python setup.py develop
 ```
@@ -47,3 +47,11 @@ Train with a single GPU:
 ```shell script
 python train.py --cfg_file ${CONFIG_FILE}
 ```
+## Run the demo with a pretrained model:
+```shell
+python demo.py --cfg_file cfgs/kitti_models/pointpillar_t1.yaml \
+    --ckpt pointpillar_t1.pth \
+    --data_path ${POINT_CLOUD_DATA}
+```
+
+For additional reference - https://github.com/open-mmlab/OpenPCDet - the repository on which this project is based on.
